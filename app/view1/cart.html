@@ -1,0 +1,27 @@
+<!--<link rel="stylesheet" href="../app/css/goods.css">-->
+<link rel="stylesheet" href="../app/css/cart.css">
+
+<div class="container col-xs-3">
+    <div class="panel panel-primary no-borders">
+        <div class="panel-heading no-borders">Корзина</div>
+        <div class="panel-body product-container" drop="" droppable>
+            <div class="cart-placeholder" ng-show="cartEmpty()">Перетащите сюда продукт</div>
+            <div ng-repeat="product in goods" class="product-item" ng-hide="cartEmpty()" draggable>
+                <img ng-src="{{product.img}}"/>
+                <div class="product-remove" ng-click="removeItems(product)"></div>
+                <div class="product-body">
+                    <div class="product-name">{{product.name}}</div>
+                    <div class="product-price">
+                        <div class="counter">
+                            <div class="counter-minus" ng-click="decreaseToAddMount(product)" id="minus"></div>
+                            <div class="counter-value">{{product.toAddAmount}}</div>
+                            <div class="counter-plus" ng-click="increaseToAddMount(product)" id="plus"></div>
+                        </div>
+                        <div class="counter-multiply">{{product.toAddAmount * product.price}} ₽</div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="total-cost">{{totalCost}}</div>-->
+        </div>
+    </div>
+</div>

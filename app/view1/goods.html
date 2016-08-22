@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="../app/css/goods.css">
+
+<div class="container col-xs-3">
+    <div class="panel panel-primary no-borders">
+        <div class="panel-heading no-borders">Товары</div>
+        <div class="panel-body product-container">
+            <div ng-repeat="product in goods" class="product-item" product="{{product}}" ng-show="checkRest(product)" draggable>
+                <img ng-src="{{product.img}}"/>
+                <div class="product-body">
+                    <div class="product-name">{{product.name}}</div>
+                    <div class="product-price">
+                        <div class="counter">
+                            <div class="counter-minus" ng-click="decreaseToAddMount(product)"></div>
+                            <div class="counter-value">{{product.toAddAmount}}</div>
+                            <div class="counter-plus" ng-click="increaseToAddMount(product)"></div>
+                        </div>
+                        <div class="counter-multiply">{{product.toAddAmount}} x {{product.price}} ₽</div>  <!-- | currency:'RUB'-->
+                    </div>
+                </div>
+                <div class="product-footer">
+                    * Остаток на складе {{product.rest}} шт
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
